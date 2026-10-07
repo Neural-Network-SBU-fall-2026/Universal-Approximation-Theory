@@ -1,0 +1,125 @@
+% !TeX program = xelatex
+% Standalone two-page exam version. Build twice with XeLaTeX.
+% Local fonts are optional and are not distributed with this source.
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=23mm,footskip=11mm]{geometry}
+\usepackage{amsmath,amssymb,setspace,needspace}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xepersian}
+\IfFileExists{fonts/IRNazanin-Regular.ttf}{%
+  \settextfont[Path=fonts/,Scale=1.13,BoldFont=IRNazanin-Bold.ttf,
+    ItalicFont=IRNazanin-Italic.ttf]{IRNazanin-Regular.ttf}
+}{\IfFontExistsTF{IRNazanin}{\settextfont[Scale=1.13]{IRNazanin}}{\settextfont{Amiri}}}
+\setlatintextfont[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf]{lmroman10-regular.otf}
+\ifdefined\DefaultMathDigits\DefaultMathDigits\else\ifdefined\DefaultMathsDigits\DefaultMathsDigits\fi\fi
+\setstretch{1.08}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\abovedisplayskip}{6pt}
+\setlength{\belowdisplayskip}{6pt}
+\binoppenalty=10000\relpenalty=10000
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\newcommand{\R}{\mathbb R}
+\newcommand{\V}{\mathcal V}
+\newcommand{\normK}[1]{\left\lVert#1\right\rVert_{\infty,K}}
+\newcommand{\step}[1]{\par\Needspace{3\baselineskip}\vspace{3pt}\textbf{#1}\quad}
+\hypersetup{pdftitle={اثبات کوتاه امتحانی قضیه تقریب همگانی},
+ pdfsubject={Two-page exam proof for continuous nonpolynomial activations}}
+\begin{document}
+\begin{center}
+{\Large\bfseries اثبات کوتاهِ امتحانیِ قضیهٔ تقریب همگانی}\par
+{\small فعال‌سازی پیوسته و غیرچندجمله‌ای؛ شبکه با یک لایهٔ پنهان}
+\end{center}
+
+\textbf{صورت قضیه.}
+فرض کنید $d\in\mathbb N$ و $\sigma:\R\to\R$ پیوسته باشد. شبکه‌های زیر می‌توانند هر تابع پیوسته را روی هر فشردهٔ ناتهی $K\subset\R^d$ یکنواختاً تقریب بزنند، اگر و تنها اگر $\sigma$ غیرچندجمله‌ای باشد:
+\[
+F(x)=\sum_{j=1}^{N}a_j\sigma(w_j^{\mathsf T}x+b_j).
+\]
+یعنی برای هر $f\in C(K)$ و هر $\varepsilon>0$، یک $N$ متناهی و پارامترهای حقیقیِ آزاد وجود دارند که $\normK{f-F}<\varepsilon$؛ در اینجا $\normK{u}=\sup_{x\in K}|u(x)|$. بایاس‌ها آزاد و خروجی خطی است.
+
+\textbf{پیش‌نیازِ مورد استفاده.}
+طبق وایرشتراسِ چندمتغیره، که از استون–وایرشتراس نتیجه می‌شود، هر تابع پیوسته روی $K$ با چندجمله‌ای‌ها یکنواختاً قابل تقریب است. اثبات این قضیهٔ کمکی در این نسخه تکرار نمی‌شود.
+
+\vspace{3pt}\hrule\vspace{5pt}
+\textbf{شروع اثبات ــ جهت کافی: فرض می‌کنیم $\sigma$ غیرچندجمله‌ای است.}
+
+\step{۱. توابع قابل تقریب.}
+فشردهٔ $K$ را ثابت کنید و $\V$ را مجموعهٔ توابع قابل تقریب با شبکه، در نرم یکنواخت، بنامید. جمع با ضرایب حقیقی و حد یکنواخت، اعضای این مجموعه را خارج نمی‌کنند: کافی است خطای هر تقریب را به سهم‌های کوچک‌تر تقسیم کنیم. چون $\sigma(b_0)\ne0$ برای یک $b_0$، با وزن ورودی صفر و ضریب خروجی $1/\sigma(b_0)$، تابع ثابتِ یک نیز ساخته می‌شود.
+
+\step{۲. فراهم‌کردن مشتق‌ها.}
+یک درجهٔ دلخواه $k\geq1$ انتخاب کنید. برای $h>0$ بگذارید
+\[
+(A_hv)(t)=\frac1{2h}\int_{t-h}^{t+h}v(s)\,ds,
+\qquad g_h=A_h^k\sigma.
+\]
+نماد $A_h^k$ یعنی $k$ بار میانگین‌گیری. چون
+$(A_hv)'(t)=[v(t+h)-v(t-h)]/(2h)$، هر بار یک مرتبه مشتق پیوسته به دست می‌آید؛ پس $g_h\in C^k$.
+این تابع میانگینِ مقادیر $\sigma(t+s_1+\cdots+s_k)$ با $|s_i|\leq h$ است. بنابراین
+\[
+|g_h(t)-\sigma(t)|\leq\sup_{|u|\leq kh}|\sigma(t+u)-\sigma(t)|.
+\]
+پیوستگی یکنواختِ $\sigma$ روی بازه‌های فشرده نشان می‌دهد $g_h\to\sigma$ روی هر بازهٔ کراندار همگرایی یکنواخت دارد.
+همچنین $g_h(w^{\mathsf T}x+b)\in\V$: مجموع‌های ریمانِ این میانگین، جمعِ نورون‌های $\sigma$ با بایاس‌های متفاوت‌اند؛ پیوستگی یکنواخت روی $K\times[-h,h]^k$، همگرایی آن‌ها را نسبت به $x$ یکنواخت می‌کند.
+
+\step{۳. یک مشتق ناصفر.}
+برای این $k$، اعدادی $h,b$ وجود دارند که $g_h^{(k)}(b)\ne0$. وگرنه همهٔ $g_h$ چندجمله‌ایِ درجهٔ حداکثر $k-1$ بودند. با انتخاب $k$ نقطهٔ ثابتِ متمایز $t_i$، فرمول لاگرانژ می‌دهد
+\[
+g_h(t)=\sum_{i=0}^{k-1}g_h(t_i)L_i(t),
+\qquad L_i(t)=\prod_{j\ne i}\frac{t-t_j}{t_i-t_j}.
+\]
+با $h\to0$، همین فرمول برای $\sigma$ برقرار می‌شد؛ پس $\sigma$ نیز چندجمله‌ای بود، برخلاف فرض. از این پس چنین $h,b$ را ثابت و $g=g_h$ می‌گذاریم.
+
+\newpage
+\noindent\textbf{ادامهٔ اثبات ــ از مشتق‌ها به چندجمله‌ای و تابع هدف}\par
+\vspace{4pt}\hrule\vspace{5pt}
+
+\step{۴. ساختن تک‌جمله‌ای‌ها.}
+برای هر $w$، تابع $H(w,x)=g(w^{\mathsf T}x+b)$ در $\V$ است. تفاضل‌های آن نسبت به وزن نیز در $\V$ هستند. اگر $e_i$ بردار واحدِ مختصهٔ $i$ باشد،
+\[
+\frac{H(w+re_i,x)-H(w,x)}r
+=x_i\int_0^1g'(w^{\mathsf T}x+b+\theta r x_i)\,d\theta.
+\]
+با $r\to0$، این عبارت روی $K$ یکنواختاً به $x_i g'(w^{\mathsf T}x+b)$ میل می‌کند: مختصات $x$ کراندارند و $g'$ روی بازهٔ شامل آرگومان‌ها پیوستگی یکنواخت دارد. پس این مشتق هم در $\V$ است.
+
+همین استدلال را برای همهٔ وزن‌ها، تا مرتبهٔ $k$ تکرار می‌کنیم. در هر مرحله عامل‌های حاصل از مختصات، روی $K$ کراندارند و مشتق بعدیِ $g$ پیوسته است؛ پس حد همچنان یکنواخت و عضو $\V$ است. برای اعداد صحیح نامنفی $\alpha_1,\ldots,\alpha_d$ با مجموع $k$، قاعدهٔ زنجیره‌ای می‌دهد
+\[
+\frac{\partial^k H}{\partial w_1^{\alpha_1}\cdots\partial w_d^{\alpha_d}}
+=x_1^{\alpha_1}\cdots x_d^{\alpha_d}\,g^{(k)}(w^{\mathsf T}x+b)\in\V.
+\]
+با $w=0$ و تقسیم بر عددِ ناصفرِ $g^{(k)}(b)$، نتیجه می‌شود
+\[
+x_1^{\alpha_1}\cdots x_d^{\alpha_d}\in\V.
+\]
+چون درجهٔ $k$ دلخواه بود و ثابت‌ها را نیز داریم، تمام تک‌جمله‌ای‌ها و ترکیب‌های خطیِ آن‌ها، یعنی تمام چندجمله‌ای‌ها، در $\V$ هستند.
+
+\step{۵. تقریب تابع هدف.}
+طبق وایرشتراس، چندجمله‌ای $p$ با $\normK{f-p}<\varepsilon/2$ وجود دارد. چون $p\in\V$، شبکه‌ای متناهی $F$ با $\normK{p-F}<\varepsilon/2$ نیز وجود دارد. در نتیجه
+\[
+\normK{f-F}\leq\normK{f-p}+\normK{p-F}<\varepsilon.
+\]
+پس جهت کافی ثابت شد.
+
+\step{جهت لازم: چرا فعال‌سازی چندجمله‌ای کافی نیست؟}
+اگر $\sigma$ درجهٔ حداکثر $m$ داشته باشد، خروجی هر شبکه روی پاره‌خط
+$K_0=\{(t,0,\ldots,0):0\leq t\leq1\}$،
+چندجمله‌ای در $t$ با درجهٔ حداکثر $m$ است؛ افزایش تعداد نورون‌ها این سقف را تغییر نمی‌دهد.
+این خروجی‌ها نمی‌توانند $t^{m+1}$ را تا هر دقتی تقریب بزنند: وگرنه دنباله‌ای از آن‌ها به این تابع یکنواختاً همگرا می‌شد، درحالی‌که فرمول لاگرانژ در $m+1$ نقطهٔ ثابت نشان می‌دهد حد نیز درجهٔ حداکثر $m$ دارد؛ تناقض.
+پس غیرچندجمله‌ای بودن لازم است.\hfill$\square$
+
+\vspace{5pt}\hrule\vspace{5pt}
+\textbf{پایان اثبات قضیهٔ اصلی}
+
+\textbf{نقشهٔ یادآوری:}
+توابع قابل تقریب؛ میانگین‌گیری؛ مشتق ناصفر؛ تک‌جمله‌ای‌ها؛ وایرشتراس.
+
+{\small
+\textbf{مرجع.}
+این متن بازنویسیِ کوتاه با میانگین‌گیری تکراری است، نه نقل لفظ‌به‌لفظ مقاله. نتیجه از مرجع اول و مسیر هموارسازی در گزاره‌های \lr{3.4} و \lr{3.7} مرجع دوم آمده است.
+\begin{latin}
+\href{https://pinkus.net.technion.ac.il/files/2021/02/neural.pdf}{Leshno et al. (1993). Neural Networks, 6(6), 861--867.}\\
+\href{https://pinkus.net.technion.ac.il/files/2021/02/acta.pdf}{Pinkus (1999). Acta Numerica, 8, 143--195.}
+\end{latin}
+}
+\end{document}
