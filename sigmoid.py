@@ -14,7 +14,7 @@ def sigmoid_coefficient(x, coefficient):
 
 # Generate x values
 x = np.linspace(-10, 10, 500)
-y = sigmoid(x)
+y = sigmoid_coefficient(x, 10)
 
 # Create the plot
 plt.figure(figsize=(8, 5))
