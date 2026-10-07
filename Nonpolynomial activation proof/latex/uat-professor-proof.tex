@@ -1,0 +1,296 @@
+% !TeX program = xelatex
+% Build twice with XeLaTeX. Local fonts are optional and are not redistributed.
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=25mm,headheight=18pt,headsep=9mm,footskip=12mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{needspace}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xepersian}
+
+% Prefer local user-supplied fonts; otherwise use an installed font.
+\IfFileExists{fonts/IRNazanin-Regular.ttf}{%
+  \settextfont[Path=fonts/,Scale=1.13,
+    BoldFont=IRNazanin-Bold.ttf,
+    ItalicFont=IRNazanin-Italic.ttf,
+    BoldItalicFont=IRNazanin-Bold.ttf]{IRNazanin-Regular.ttf}
+}{%
+  \IfFontExistsTF{IRNazanin}{\settextfont[Scale=1.13]{IRNazanin}}{%
+    \settextfont[Scale=1.03]{Amiri}}
+}
+\setlatintextfont[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]{lmroman10-regular.otf}
+\ifdefined\DefaultMathDigits\DefaultMathDigits\else\ifdefined\DefaultMathsDigits\DefaultMathsDigits\fi\fi
+\setstretch{1.12}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{2pt plus 1pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\allowdisplaybreaks[1]
+
+\newtheoremstyle{persianplain}{7pt}{7pt}{\normalfont}{}%
+  {\bfseries}{.}{.5em}{}
+\theoremstyle{persianplain}
+\newtheorem{theorem}{قضیه}
+\newtheorem{lemma}{لم}
+\newtheorem*{auxiliary}{قضیهٔ کمکی (استون–وایرشتراس)}
+\newtheorem*{remark}{تذکر}
+\renewcommand{\proofname}{اثبات}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\NN}{\mathcal N_\sigma(K)}
+\newcommand{\V}{\mathcal V}
+\newcommand{\unorm}[1]{\left\lVert #1\right\rVert_{\infty,K}}
+\newcommand{\step}[1]{\par\Needspace{4\baselineskip}\noindent\textbf{#1}\quad}
+\newcommand{\proofsection}[1]{%
+  \par\ifnum\value{section}>0\clearpage\fi\vspace{.2\baselineskip}%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \noindent{\Large\bfseries\thesection\quad#1\par}%
+  \nobreak\vspace{.3\baselineskip}\ignorespaces}
+
+
+\pagestyle{plain}
+\hypersetup{
+  pdftitle={قضیه تقریب همگانی با فعال‌سازی پیوسته و غیرچندجمله‌ای},
+  pdfsubject={Formal proof of the continuous nonpolynomial universal approximation theorem},
+  pdfkeywords={Universal approximation, nonpolynomial activation, Leshno, Pinkus}}
+
+\begin{document}
+\thispagestyle{plain}
+\begin{center}
+{\LARGE\bfseries قضیهٔ تقریب همگانی\par}
+\vspace{3pt}
+{\Large\bfseries با فعال‌سازی پیوسته و غیرچندجمله‌ای\par}
+\vspace{8pt}
+{\normalsize شبکهٔ پیش‌خور با یک لایهٔ پنهان، بایاس و خروجی خطی}
+\end{center}
+\vspace{3pt}
+
+\noindent\textbf{چکیده.}
+ثابت می‌کنیم که برای یک فعال‌سازی پیوسته، امکان تقریب یکنواخت هر تابع پیوسته روی هر مجموعهٔ فشرده، با شبکهٔ یک‌لایهٔ پنهان و عرض متناهیِ قابل افزایش، معادل غیرچندجمله‌ای بودن فعال‌سازی است. استدلال بر میانگین‌گیری تکراری، تفاضل نسبت به وزن‌ها و تقریب چندجمله‌ای تکیه دارد. تنها نتیجهٔ اصلیِ نقل‌شده بدون اثبات، قضیهٔ استون–وایرشتراس است؛ لم‌های اختصاصیِ مورد نیاز در متن اثبات می‌شوند.
+
+\proofsection{صورت قضیه و قراردادها}
+
+\begin{theorem}[صورت پیوستهٔ نتیجهٔ لشْنو و همکاران، ۱۹۹۳]
+\label{thm:uat}
+فرض کنید $d\in\N$ و $\sigma\in C(\R)$ باشد. دو گزارهٔ زیر معادل‌اند:
+
+\noindent\textbf{الف)} تابع $\sigma$ روی $\R$ با هیچ چندجمله‌ای برابر نیست.
+
+\noindent\textbf{ب)} برای هر فشردهٔ ناتهی $K\subset\R^d$، هر $f\in C(K)$ و هر $\varepsilon>0$، عدد $N\in\N$ و پارامترهای حقیقی $a_j,b_j$ و $w_j\in\R^d$ وجود دارند، به‌طوری‌که
+\begin{equation}\label{eq:goal}
+F(x)=\sum_{j=1}^{N}a_j\sigma(w_j^{\mathsf T}x+b_j),
+\qquad
+\unorm{f-F}<\varepsilon.
+\end{equation}
+در اینجا $\unorm{u}=\sup_{x\in K}|u(x)|$ است و تعداد نورون‌ها و پارامترها می‌توانند به $K,f,\varepsilon$ وابسته باشند.
+\end{theorem}
+
+مرجع اصلی این نتیجه، قضیهٔ ۱ و بخش ۶ مقالهٔ \cite{leshno1993} است. صورت پیوسته و مسیر هموارسازی در \cite{pinkus1999}، قضیهٔ \lr{3.1} و گزاره‌های \lr{3.4} و \lr{3.7} نیز آمده است. در متن حاضر، هموارسازی با هستهٔ نرمِ مقاله با میانگین‌گیری روی بازه جایگزین شده و گذار چندمتغیره مستقیماً با مشتق نسبت به وزن‌ها انجام می‌شود؛ بنابراین متن، بازنویسیِ اثبات است، نه نقلِ عین آن.
+
+\begin{auxiliary}\label{thm:sw}
+اگر $K$ یک فضای فشردهٔ هاسدورف و $\mathcal A$ یک زیرجبر حقیقی از $C(K)$ باشد که ثابت‌ها را در بر گیرد و نقاط را جدا کند، آنگاه $\mathcal A$ در نرم یکنواخت در $C(K)$ چگال است. جداکردن نقاط یعنی برای هر $x\neq y$ در $K$، عضوی مانند $p\in\mathcal A$ وجود داشته باشد که $p(x)\neq p(y)$.
+\end{auxiliary}
+
+برای $K\subset\R^d$، محدودیت چندجمله‌ای‌های چندمتغیره به $K$ چنین جبری است: ثابت‌ها را دارد، تحت جمع و ضرب بسته است و یکی از توابع مختصاتی، هر دو نقطهٔ متفاوت را جدا می‌کند. پس برای هر $f\in C(K)$ و هر $\eta>0$، چندجمله‌ای $p$ با $\unorm{f-p}<\eta$ وجود دارد.
+
+\proofsection{دو ابزار مقدماتی}
+
+\step{فضای توابع قابل تقریب.}
+فشردهٔ $K$ را ثابت می‌کنیم و می‌نویسیم
+\begin{equation}\label{eq:space}
+\NN=\operatorname{span}\{x\mapsto\sigma(w^{\mathsf T}x+b):w\in\R^d,\ b\in\R\},
+\qquad
+\V=\overline{\NN}^{\,\|\cdot\|_{\infty,K}}.
+\end{equation}
+پس $\V$ یک زیر‌فضای خطی بسته از $C(K)$ است. به‌طور مشخص، $u\in\V$ یعنی برای هر $\eta>0$، شبکهٔ متناهی $F\in\NN$ با $\unorm{u-F}<\eta$ وجود دارد. جمع و ضربِ اسکالرِ دو شبکه، باز یک شبکه است. همچنین اگر $u_n\in\V$ و $u_n\to u$ یکنواختاً، با انتخاب $n$ و سپس $F$ چنان‌که
+\[
+\unorm{u-u_n}<\eta/2,
+\qquad
+\unorm{u_n-F}<\eta/2,
+\]
+داریم $\unorm{u-F}<\eta$؛ بنابراین $u\in\V$.
+
+\begin{lemma}[بسته‌بودن چندجمله‌ای‌های با درجهٔ محدود]
+\label{lem:poly}
+فرض کنید $I\subset\R$ بازه‌ای با طول مثبت، $m\geq0$ و $p_n$ چندجمله‌ای‌هایی با درجهٔ حداکثر $m$ باشند. اگر $p_n(t)\to u(t)$ برای هر $t\in I$، آنگاه $u$ روی $I$ برابر یک چندجمله‌ای با درجهٔ حداکثر $m$ است.
+\end{lemma}
+\begin{proof}
+نقاط متمایز $t_0,\ldots,t_m\in I$ را ثابت و پایه‌های لاگرانژ را تعریف می‌کنیم:
+\[
+L_i(t)=\prod_{\substack{0\leq j\leq m\\j\neq i}}\frac{t-t_j}{t_i-t_j}.
+\]
+برای هر $n$، رابطهٔ درون‌یابی می‌دهد
+\[
+p_n(t)=\sum_{i=0}^{m}p_n(t_i)L_i(t).
+\]
+زیرا اختلاف دو طرف، درجهٔ حداکثر $m$ و $m+1$ ریشهٔ متمایز دارد و در نتیجه صفر است. با حدگیری در مجموع متناهی،
+\[
+u(t)=\sum_{i=0}^{m}u(t_i)L_i(t),\qquad t\in I,
+\]
+و سمت راست یک چندجمله‌ای مستقل از $n$ با درجهٔ حداکثر $m$ است. در حالت $m=0$، حاصل‌ضرب تهی را برابر یک می‌گیریم.
+\end{proof}
+
+\proofsection{هموارسازی بدون تغییر فعال‌سازی شبکه}
+
+\begin{lemma}[میانگین‌گیری تکراری]
+\label{lem:smoothing}
+برای هر $k\geq1$ و $h>0$، تعریف کنید
+\begin{equation}\label{eq:average}
+(A_hv)(t)=\frac{1}{2h}\int_{t-h}^{t+h}v(s)\,ds,
+\qquad g_h=A_h^k\sigma,
+\end{equation}
+که $A_h^k$ یعنی اعمال $k$بارهٔ عملگر $A_h$. آنگاه $g_h\in C^k(\R)$، و با ثابت‌بودن $k$، $g_h\to\sigma$ به‌طور یکنواخت روی هر بازهٔ فشرده، هنگامی که $h\to0$. افزون بر این، برای هر $w,b$، تابع $x\mapsto g_h(w^{\mathsf T}x+b)$ عضو $\V$ است.
+\end{lemma}
+\begin{proof}
+طبق قضیهٔ اساسی حساب، برای $v$ پیوسته،
+\[
+(A_hv)'(t)=\frac{v(t+h)-v(t-h)}{2h}.
+\]
+در نتیجه $A_h$ تابعی از ردهٔ $C^r$ را به تابعی از ردهٔ $C^{r+1}$ می‌برد و با استقرا، $g_h\in C^k$ است. بازکردن انتگرال‌های تکراری می‌دهد
+\begin{equation}\label{eq:integral}
+g_h(t)=\frac{1}{(2h)^k}\int_{[-h,h]^k}
+\sigma(t+s_1+\cdots+s_k)\,ds_1\cdots ds_k.
+\end{equation}
+از مثبت و نرمال‌شده بودن وزن میانگین و نامساوی $|s_1+\cdots+s_k|\leq kh$،
+\begin{equation}\label{eq:approx-id}
+\sup_{|t|\leq R}|g_h(t)-\sigma(t)|
+\leq \sup_{\substack{|t|\leq R\\ |u|\leq kh}}|\sigma(t+u)-\sigma(t)|
+\longrightarrow0.
+\end{equation}
+برای این حد، کافی است $h\leq1$ و پیوستگی یکنواخت $\sigma$ را روی $[-R-k,R+k]$ به کار بریم.
+
+برای اثبات ادعای آخر، در \eqref{eq:integral} به‌جای $t$ مقدار $w^{\mathsf T}x+b$ قرار می‌دهیم. هر مجموع ریمانِ انتگرال حاصل، شکلی مانند
+\[
+S_{\mathcal P}(x)=\sum_{r=1}^{M}c_r\sigma(w^{\mathsf T}x+\widetilde b_r),
+\qquad
+\widetilde b_r=b+s_{r,1}+\cdots+s_{r,k},
+\]
+دارد و عضو $\NN$ است. تابع زیرانتگرال بر مجموعهٔ فشردهٔ $K\times[-h,h]^k$ پیوسته و در نتیجه یکنواختاً پیوسته است. اگر نوسان زیرانتگرال در هر سلولِ افراز، به‌طور یکنواخت نسبت به $x$، کمتر از $\delta$ باشد، خطای مجموع ریمانِ نرمال‌شده نیز حداکثر $\delta$ است؛ زیرا مجموع وزن سلول‌ها یک است. پس $S_{\mathcal P}$ با ریزشدن افراز، در نرم یکنواخت به $g_h(w^{\mathsf T}x+b)$ همگرا می‌شود و ادعای آخر نیز ثابت است.
+\end{proof}
+
+\begin{lemma}[وجود مشتق ناصفر در هر مرتبه]
+\label{lem:nonzero}
+اگر $\sigma$ غیرچندجمله‌ای باشد، برای هر $k\geq1$، اعدادی مانند $h>0$ و $b\in\R$ وجود دارند که $g_h^{(k)}(b)\neq0$.
+\end{lemma}
+\begin{proof}
+خلاف ادعا یعنی برای یک $k$ ثابت، $g_h^{(k)}\equiv0$ برای تمام $h>0$. در این صورت، با تکرار این واقعیت که تابعِ دارای مشتق صفر ثابت است، هر $g_h$ چندجمله‌ایِ درجهٔ حداکثر $k-1$ خواهد بود. دنبالهٔ $h_n=1/n$ را در نظر بگیرید. طبق لم \ref{lem:smoothing}، $g_{h_n}(t)\to\sigma(t)$ برای هر $t\in\R$. لم \ref{lem:poly} با $I=\R$ نتیجه می‌دهد که $\sigma$ نیز یک چندجمله‌ایِ درجهٔ حداکثر $k-1$ است؛ تناقض.
+\end{proof}
+
+\begin{remark}
+انتخاب $h$ و $b$ می‌تواند به مرتبهٔ $k$ وابسته باشد. نیازی به وجود یک نقطهٔ مشترک که تمام مشتق‌ها در آن ناصفر باشند، یا یک هموارسازی ثابت برای همهٔ مرتبه‌ها نیست.
+\end{remark}
+
+\proofsection{استخراج تک‌جمله‌ای‌ها از مشتق نسبت به وزن}
+
+برای چندنمایهٔ $\alpha=(\alpha_1,\ldots,\alpha_d)\in\mathbb N_0^d$، قرارداد می‌کنیم
+\[
+|\alpha|=\alpha_1+\cdots+\alpha_d,
+\qquad x^\alpha=x_1^{\alpha_1}\cdots x_d^{\alpha_d}.
+\]
+بردار $e_i$، بردار واحد مختصاتیِ $i$ام است.
+
+\begin{lemma}[مشتق پارامتری در بستار شبکه‌ها]
+\label{lem:derivative}
+فرض کنید $g\in C^k(\R)$ و $b\in\R$ ثابت باشد و برای تمام $w\in\R^d$، تابع $x\mapsto g(w^{\mathsf T}x+b)$ در $\V$ قرار گیرد. آنگاه برای هر $|\alpha|\leq k$ و هر $w$،
+\begin{equation}\label{eq:derivatives}
+x\mapsto x^\alpha g^{(|\alpha|)}(w^{\mathsf T}x+b)\in\V.
+\end{equation}
+\end{lemma}
+\begin{proof}
+بر $|\alpha|$ استقرا می‌زنیم. حالت صفر همان فرض است. فرض کنید نتیجه برای چندنمایهٔ $\beta$ با $|\beta|<k$ و برای همهٔ وزن‌ها برقرار باشد. با خطی‌بودن $\V$، برای $r\neq0$، تابع
+\[
+Q_r(x)=x^\beta\,
+\frac{g^{(|\beta|)}((w+re_i)^{\mathsf T}x+b)
+-g^{(|\beta|)}(w^{\mathsf T}x+b)}{r}
+\]
+در $\V$ قرار دارد. طبق قضیهٔ اساسی حساب و قاعدهٔ زنجیره‌ای،
+\begin{equation}\label{eq:difference}
+Q_r(x)=x^{\beta+e_i}\int_0^1
+ g^{(|\beta|+1)}(w^{\mathsf T}x+b+\theta r x_i)\,d\theta.
+\end{equation}
+قرار دهید $M=\max\{1,\sup_{x\in K}\|x\|_\infty\}$. برای $|r|\leq1$، همهٔ آرگومان‌های مشتق در \eqref{eq:difference} داخل یک بازهٔ فشردهٔ ثابت $J$ قرار می‌گیرند. تعریف کنید
+\[
+\omega(\rho)=\sup_{\substack{u,v\in J\\ |u-v|\leq\rho}}
+\left|g^{(|\beta|+1)}(u)-g^{(|\beta|+1)}(v)\right|.
+\]
+پیوستگی یکنواخت می‌دهد $\omega(\rho)\to0$ با $\rho\to0$. از \eqref{eq:difference} نیز داریم
+\[
+\unorm{Q_r-x^{\beta+e_i}g^{(|\beta|+1)}(w^{\mathsf T}x+b)}
+\leq M^{|\beta|+1}\omega(|r|M)\longrightarrow0.
+\]
+بنابراین، با بسته‌بودن $\V$، رابطهٔ \eqref{eq:derivatives} برای $\beta+e_i$ نیز برقرار است و استقرا کامل می‌شود.
+\end{proof}
+
+\begin{remark}
+در لم بالا از بسته‌بودن $\V$ تحت ضربِ توابع استفاده نشده است؛ این ویژگی را برای $\V$ فرض نکرده‌ایم. تفاضل از دو عضوِ خانوادهٔ معلوم ساخته می‌شود و عضویت مشتق از حد یکنواخت نتیجه می‌شود.
+\end{remark}
+
+\proofsection{اثبات قضیهٔ اصلی}
+
+\begin{proof}[اثبات قضیهٔ \ref{thm:uat}]
+\step{جهت کافی.}
+فرض کنید $\sigma$ غیرچندجمله‌ای باشد و فشردهٔ ناتهی $K$ را ثابت کنید. چون $\sigma\not\equiv0$، نقطه‌ای مانند $b_0$ با $\sigma(b_0)\neq0$ وجود دارد. در نتیجه ثابت یک با وزن ورودی صفر ساخته می‌شود:
+\[
+1=\frac{\sigma(0^{\mathsf T}x+b_0)}{\sigma(b_0)}\in\NN\subset\V.
+\]
+حال چندنمایهٔ دلخواه $\alpha$ با $|\alpha|=k\geq1$ را انتخاب کنید. لم \ref{lem:nonzero} اعداد $h,b$ را چنان به دست می‌دهد که $g_h^{(k)}(b)\neq0$. طبق لم‌های \ref{lem:smoothing} و \ref{lem:derivative}،
+\[
+x^\alpha g_h^{(k)}(w^{\mathsf T}x+b)\in\V.
+\]
+با قرار دادن $w=0$ و تقسیم بر ضریب ناصفر،
+\begin{equation}\label{eq:monomial}
+x^\alpha=\frac{x^\alpha g_h^{(k)}(b)}{g_h^{(k)}(b)}\in\V.
+\end{equation}
+پس تمام تک‌جمله‌ای‌ها و، به دلیل خطی‌بودن $\V$، تمام چندجمله‌ای‌های چندمتغیره در $\V$ قرار دارند.
+
+طبق نتیجهٔ استون–وایرشتراسِ بخش اول، برای $f\in C(K)$ و $\varepsilon>0$، چندجمله‌ای $p$ وجود دارد که $\unorm{f-p}<\varepsilon/2$. چون $p\in\V$، تعریف بستار شبکهٔ متناهی $F\in\NN$ را با $\unorm{p-F}<\varepsilon/2$ فراهم می‌کند. در نتیجه
+\[
+\unorm{f-F}\leq\unorm{f-p}+\unorm{p-F}<\varepsilon.
+\]
+این همان \eqref{eq:goal} است.
+
+\step{جهت لازم.}
+عکسِ نقیضِ جهت لازم را ثابت می‌کنیم. فرض کنید $\sigma$ چندجمله‌ای با درجهٔ حداکثر $m\geq0$ باشد؛ این قرارداد تابع صفر را نیز پوشش می‌دهد. پاره‌خط فشردهٔ
+\[
+K_0=\{(t,0,\ldots,0):0\leq t\leq1\}\subset\R^d
+\]
+را در نظر بگیرید. محدودیت خروجی هر شبکه به $K_0$ برابر است با
+\[
+F(t,0,\ldots,0)=\sum_{j=1}^{N}a_j\sigma(w_{j,1}t+b_j),
+\]
+و، مستقل از تعداد نورون‌ها، چندجمله‌ای در $t$ با درجهٔ حداکثر $m$ است. اگر گزارهٔ ب برقرار بود، با انتخاب $f(t,0,\ldots,0)=t^{m+1}$ و خطاهای $1/n$، دنباله‌ای از این چندجمله‌ای‌ها یکنواختاً به $t^{m+1}$ روی $[0,1]$ همگرا می‌شد. طبق لم \ref{lem:poly}، حد نیز درجهٔ حداکثر $m$ داشت؛ تناقض. بنابراین $\sigma$ باید غیرچندجمله‌ای باشد.
+\end{proof}
+
+\proofsection{ملاحظات و انتساب علمی}
+
+قضیه صرفاً وجودِ پارامترهای تقریب را تضمین می‌کند، نه موفقیت آموزش، کرانِ عرض یا کرانِ وزن‌ها. ضرورتِ غیرچندجمله‌ای بودن برای تقریب روی \emph{تمام} فشرده‌ها و برای یک لایهٔ پنهان است؛ این حکم را نباید بدون استدلال به یک مجموعهٔ متناهیِ خاص یا به عمقِ قابل افزایش تعمیم داد. برای مثال، $\sigma(t)=t^2$ غیرخطی است، ولی خروجی شبکهٔ یک‌لایهٔ پنهان با آن همچنان درجهٔ حداکثر دو دارد.
+
+استخراج تک‌جمله‌ای‌ها در گام سومِ صفحهٔ ۸۶۴ مرجع \cite{leshno1993} و مسیر هموارسازی در گزارهٔ \lr{3.7}، صفحات ۱۵۷–۱۵۸ مرجع \cite{pinkus1999} آمده‌اند. میانگین‌گیری تکراری، استدلال لاگرانژ و نوشتن مستقیمِ مشتق‌های چندمتغیره، جزئیات بازنویسی حاضرند؛ ادعای نوآوری یا نقل لفظ‌به‌لفظ منابع مطرح نیست.
+
+\renewcommand{\refname}{مراجع}
+\begin{thebibliography}{9}
+\begin{latin}
+\bibitem{leshno1993}
+M. Leshno, V. Ya. Lin, A. Pinkus, and S. Schocken.
+\textit{Multilayer feedforward networks with a nonpolynomial activation function can approximate any function}.
+Neural Networks, 6(6):861--867, 1993.
+\href{https://doi.org/10.1016/S0893-6080(05)80131-5}{doi:10.1016/S0893-6080(05)80131-5}.
+\newline
+\href{https://pinkus.net.technion.ac.il/files/2021/02/neural.pdf}{Author-hosted full-text PDF}.
+
+\bibitem{pinkus1999}
+A. Pinkus.
+\textit{Approximation theory of the MLP model in neural networks}.
+Acta Numerica, 8:143--195, 1999.
+\href{https://doi.org/10.1017/S0962492900002919}{doi:10.1017/S0962492900002919}.
+\newline
+\href{https://pinkus.net.technion.ac.il/files/2021/02/acta.pdf}{Author-hosted full-text PDF}.
+\end{latin}
+\end{thebibliography}
+
+\end{document}
