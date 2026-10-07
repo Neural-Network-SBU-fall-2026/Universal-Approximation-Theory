@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\section*{Theorem (Universal Approximation Theorem)}
+
+If \( f \) is a continuous function on a compact set \( K \), then for every \( \varepsilon > 0 \), there exists a feed-forward network with a single hidden layer and a sufficient number of sigmoidal neurons such that the network's output is at most \( \varepsilon \) away from \( f \).
+
+That is:
+\[
+\forall f \in C(K), \; \forall \varepsilon > 0, \; \exists N
+\]
+such that
+\[
+\sup_{x \in K} \left| f(x) - N(x) \right| < \varepsilon.
+\]
+
+\section*{Appendix: Answers to the Questions}
+
+\subsection*{1) What is a compact set?}
+A set \( K \) is called compact if it satisfies two conditions:
+\begin{itemize}
+    \item \textbf{Closed:} all of its limit points (boundary points) belong to the set.
+    \item \textbf{Bounded:} it fits inside some finite interval or region.
+\end{itemize}
+
+Simple examples:
+\begin{itemize}
+    \item The interval \( [0,1] \) in real numbers is compact (closed and bounded).
+    \item The interval \( (0,1) \) is not compact (it is open).
+    \item In 2D space, a closed disk is compact.
+\end{itemize}
+
+\textbf{Why is it important?} \\
+In this theorem, compactness of \( K \) guarantees that a continuous function on it behaves ``well'' (for instance, it is uniformly continuous), which makes uniform approximation by a network possible.
+
+\subsection*{2) What is a feed-forward network?}
+A feed-forward neural network is the simplest type of neural network in which information flows in only one direction:
+\[
+\text{Input} \to \text{Hidden Layer} \to \text{Output}
+\]
+There is no feedback from the output back to the input. If it has ``one hidden layer,'' it means:
+\[
+x \to (\text{hidden layer neurons}) \to (\text{output neuron}) \to N(x)
+\]
+Each neuron takes a linear combination of its inputs and then applies an activation function (such as a sigmoid) to it.
+
+\subsection*{3) What is the function class \( C(K) \)?}
+The notation \( C(K) \) refers to the set of continuous real-valued functions on the set \( K \).
+
+That is:
+\[
+C(K) = \{ f : K \to \mathbb{R} \mid f \text{ is continuous} \}
+\]
+So when we write \( f \in C(K) \), it means \( f \) is a continuous function on \( K \).
+
+\subsection*{4) What is \( K \)?}
+\( K \) is the domain of the function; a compact subset of Euclidean space (for example, \( \mathbb{R}^n \)).
+
+Example: \( K = [0,1]^n \), the unit cube in \( n \)-dimensional space.
+
+\subsection*{5) What is \( N \)?}
+\( N \) is the function produced by the neural network. That is:
+\[
+N(x) = \text{the output of the neural network for input } x
+\]
+With specific weights and biases, the network defines a function \( N : K \to \mathbb{R} \). The taheorem states that this \( N \) can approximate \( f \) to within accuracy \( \varepsilon \).
+
+\subsection*{6) What is \( \sup \)?}
+\( \sup \) stands for \textbf{Supremum}, meaning the least upper bound.
+
+For a set of numbers, \( \sup \) is the smallest number that is greater than or equal to all numbers in that set.
+
+In this theorem:
+\[
+\sup_{x \in K} \left| f(x) - N(x) \right| < \varepsilon
+\]
+This means: the largest distance between \( f(x) \) and \( N(x) \) over the entire domain \( K \) is less than \( \varepsilon \).
+
+This is called \textbf{uniform approximation}, because the error is controlled simultaneously at all points of \( K \).
+
+\section*{Summary of the Theorem in Plain Language}
+
+If \( f \) is a continuous function on a compact set such as \( K \), then for any desired accuracy \( \varepsilon > 0 \), one can construct a feed-forward neural network with one hidden layer and enough sigmoidal neurons, such that the network's output \( N(x) \) differs from \( f(x) \) by at most \( \varepsilon \) at every point of \( K \).
+
+In other words: \textit{Neural networks can approximate any continuous function to any desired accuracy.}
+
+\end{document}
