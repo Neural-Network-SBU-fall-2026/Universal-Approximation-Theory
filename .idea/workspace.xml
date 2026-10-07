@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="setup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="LaTex 00_theorem_statement" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1791374652082</updated>
-      <workItem from="1791374680549" duration="2635000" />
+      <workItem from="1791374680549" duration="2989000" />
     </task>
     <task id="LOCAL-00001" summary="sigmoid lib">
       <option name="closed" value="true" />
@@ -139,7 +137,39 @@
       <option name="project" value="LOCAL" />
       <updated>1791375965559</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Hand writes 00_theorem_statement">
+      <option name="closed" value="true" />
+      <created>1791384305790</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1791384305790</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Papers 00_theorem_statement">
+      <option name="closed" value="true" />
+      <created>1791384316103</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1791384316103</updated>
+    </task>
+    <task id="LOCAL-00011" summary="LaTex 00_theorem_statement">
+      <option name="closed" value="true" />
+      <created>1791384428179</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1791384428179</updated>
+    </task>
+    <task id="LOCAL-00012" summary="LaTex 00_theorem_statement">
+      <option name="closed" value="true" />
+      <created>1791384445094</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1791384445094</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +203,10 @@
     <MESSAGE value="sigmoid plot" />
     <MESSAGE value="sigmoid plot sigmoid_coefficient" />
     <MESSAGE value="setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup" />
+    <MESSAGE value="Hand writes 00_theorem_statement" />
+    <MESSAGE value="Papers 00_theorem_statement" />
+    <MESSAGE value="LaTex 00_theorem_statement" />
+    <option name="LAST_COMMIT_MESSAGE" value="LaTex 00_theorem_statement" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UAT$sigmoid.coverage" NAME="sigmoid Coverage Results" MODIFIED="1791375714322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
