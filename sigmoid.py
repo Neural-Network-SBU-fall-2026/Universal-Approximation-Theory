@@ -10,7 +10,7 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 def sigmoid_coefficient(x, coefficient):
-    return 1 / (1 + coefficient*(-x))
+    return 1 / (1 + np.exp(coefficient*(-x)))
 
 # Generate x values
 x = np.linspace(-10, 10, 500)
