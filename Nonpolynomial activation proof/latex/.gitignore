@@ -1,0 +1,14 @@
+# Local font files are not redistributed.
+/fonts/
+*.ttf
+*.otf
+
+# XeLaTeX build intermediates (keep the final PDF).
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
