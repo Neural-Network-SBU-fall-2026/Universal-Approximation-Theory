@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\section*{Cybenko's Theorem (Universal Approximation Theorem)}
+
+Let:
+\[
+K = [0,1]^n
+\]
+
+Define a single-hidden-layer network as follows:
+\[
+N(x) = \sum_{j=1}^{m} \alpha_j \, \sigma(w_j^T x + b_j)
+\]
+where:
+\begin{itemize}
+    \item \( x \in \mathbb{R}^n \)
+    \item \( w_j \in \mathbb{R}^n \)
+    \item \( b_j \in \mathbb{R} \)
+    \item \( \alpha_j \in \mathbb{R} \)
+    \item \( \sigma : \mathbb{R} \to \mathbb{R} \) is the activation function.
+\end{itemize}
+
+For the sigmoid function:
+\[
+\sigma(t) = \frac{1}{1 + e^{-t}}
+\]
+
+Cybenko's Theorem states that if \( \sigma \) is continuous and sigmoidal, meaning:
+\[
+\lim_{t \to -\infty} \sigma(t) = 0
+\]
+and
+\[
+\lim_{t \to +\infty} \sigma(t) = 1
+\]
+then the set
+\[
+\mathcal{N}_\sigma = \left\{ \sum_{j=1}^{m} \alpha_j \, \sigma(w_j^T x + b_j) \; : \; m < \infty \right\}
+\]
+is dense in the space
+\[
+C([0,1]^n)
+\]
+That is:
+\[
+\overline{\mathcal{N}_\sigma} = C([0,1]^n)
+\]
+And this is precisely the heart of the theorem.
+
+\section*{What Does ``Dense'' Mean?}
+
+This part is very important.
+
+When we say
+\[
+\overline{\mathcal{N}_\sigma} = C(K)
+\]
+we do not mean that the network is exactly equal to the function.
+
+Rather, for every
+\[
+f \in C(K)
+\]
+and every
+\[
+\varepsilon > 0
+\]
+one can find a network such that:
+\[
+\| f - N \|_\infty < \varepsilon
+\]
+where:
+\[
+\| f - N \|_\infty = \sup_{x \in K} \left| f(x) - N(x) \right|
+\]
+So the network can get arbitrarily close to any continuous function, to any desired accuracy.
+
+\end{document}

@@ -13,7 +13,7 @@ def sigmoid_coefficient(x, coefficient):
 x = np.linspace(-10, 10, 500)
 
 # List of coefficients to compare
-coefficients = [0.25, 0.5, 1, 2, 5, 10]
+coefficients = [2, 5, 10, 100]
 
 # Create the plot
 plt.figure(figsize=(10, 6))
