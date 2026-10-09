@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="initial readme">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="Road map">
+      <change beforePath="$PROJECT_DIR$/Cybenko proof/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Cybenko proof/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
       <workItem from="1791374680549" duration="3299000" />
       <workItem from="1791488865315" duration="1423000" />
       <workItem from="1791559197019" duration="1100000" />
-      <workItem from="1791574068633" duration="906000" />
+      <workItem from="1791574068633" duration="1229000" />
     </task>
     <task id="LOCAL-00001" summary="sigmoid lib">
       <option name="closed" value="true" />
@@ -255,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791574350766</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Road map">
+      <option name="closed" value="true" />
+      <created>1791575493838</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1791575493839</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +308,8 @@
     <MESSAGE value="Hahn--Banach Theorem (Normed Version)" />
     <MESSAGE value="Riesz Representation Theorem" />
     <MESSAGE value="initial readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial readme" />
+    <MESSAGE value="Road map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Road map" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UAT$sigmoid.coverage" NAME="sigmoid Coverage Results" MODIFIED="1791384757611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Cybenko proof" />
