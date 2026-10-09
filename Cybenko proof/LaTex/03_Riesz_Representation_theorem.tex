@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\section*{Riesz Representation Theorem}
+
+\textbf{Important note:} In mathematics, several theorems are known by the name ``Riesz Representation.'' In Cybenko's proof, we are referring to the Riesz Representation Theorem for linear functionals on the space of continuous functions, not merely the well-known Hilbert space version.
+
+\subsection*{Definition of the Space of Continuous Functions}
+
+Let:
+\[
+K = [0,1]^n
+\]
+and consider the space:
+\[
+C(K) = \{ f : K \to \mathbb{R} \mid f \text{ is continuous} \}
+\]
+We also define the uniform norm:
+\[
+\| f \|_\infty = \sup_{x \in K} | f(x) |
+\]
+This normed space is a Banach space.
+
+\subsection*{Formal Statement of the Riesz--Markov--Kakutani Theorem}
+
+Let \( K \) be a compact Hausdorff space, and let:
+\[
+L : C(K) \to \mathbb{R}
+\]
+be a continuous linear functional.
+
+Then there exists a unique finite signed regular Borel measure \( \mu \) such that:
+\[
+L(f) = \int_K f(x) \, d\mu(x)
+\]
+for every:
+\[
+f \in C(K)
+\]
+Moreover:
+\[
+\| L \| = |\mu|(K)
+\]
+where \( |\mu| \) is the total variation measure of \( \mu \).
+
+\end{document}
