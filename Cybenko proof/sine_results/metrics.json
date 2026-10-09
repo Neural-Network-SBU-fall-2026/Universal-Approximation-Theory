@@ -8,96 +8,96 @@
   "activation": "logistic sigmoid",
   "hidden_slope": 2.0,
   "lstsq_rcond": 1e-12,
-  "numpy_version": "2.3.5",
-  "matplotlib_version": "3.10.8",
+  "numpy_version": "2.5.3",
+  "matplotlib_version": "3.11.2",
   "models": [
     {
       "width": 4,
       "train": {
-        "mse": 0.0007057969475667681,
-        "rmse": 0.02656683924682739,
-        "mae": 0.023457528088379555,
-        "max_abs_error": 0.04513208129172175,
+        "mse": 0.0007057969475667677,
+        "rmse": 0.026566839246827383,
+        "mae": 0.02345752808837954,
+        "max_abs_error": 0.045132081291722026,
         "r2": 0.9985828704425326
       },
       "test": {
-        "mse": 0.0007025576067592364,
-        "rmse": 0.026505803265685732,
-        "mae": 0.023397139343157736,
-        "max_abs_error": 0.045147373150336734,
+        "mse": 0.0007025576067592362,
+        "rmse": 0.02650580326568573,
+        "mae": 0.023397139343157722,
+        "max_abs_error": 0.045147373150336956,
         "r2": 0.9985948847864815
       },
-      "endpoint_max_abs_error": 0.03839373616933418,
-      "sampled_interval_max_abs_error": 0.045147373150336734,
+      "endpoint_max_abs_error": 0.03839373616933463,
+      "sampled_interval_max_abs_error": 0.045147373150336956,
       "effective_rank": 4,
-      "design_condition_number": 26.91237113085002,
-      "max_abs_output_weight": 2.451497371358092
+      "design_condition_number": 26.91237113085005,
+      "max_abs_output_weight": 2.451497371358099
     },
     {
       "width": 8,
       "train": {
-        "mse": 1.2933157981702844e-06,
-        "rmse": 0.0011372404311183648,
-        "mae": 0.0008905762927087148,
-        "max_abs_error": 0.0023960291319092275,
+        "mse": 1.2933157981702916e-06,
+        "rmse": 0.001137240431118368,
+        "mae": 0.0008905762927086298,
+        "max_abs_error": 0.0023960291319103377,
         "r2": 0.9999974032247504
       },
       "test": {
-        "mse": 1.2888316341088328e-06,
-        "rmse": 0.0011352672082416688,
-        "mae": 0.0008877229458894856,
-        "max_abs_error": 0.0023972771926145664,
+        "mse": 1.2888316341088023e-06,
+        "rmse": 0.0011352672082416554,
+        "mae": 0.0008877229458893611,
+        "max_abs_error": 0.0023972771926151215,
         "r2": 0.9999974223367318
       },
-      "endpoint_max_abs_error": 0.0014745040935034588,
-      "sampled_interval_max_abs_error": 0.0023972771926145664,
+      "endpoint_max_abs_error": 0.0014745040935070116,
+      "sampled_interval_max_abs_error": 0.0023972771926151215,
       "effective_rank": 8,
-      "design_condition_number": 147.17820961642295,
-      "max_abs_output_weight": 1.8584575376639658
+      "design_condition_number": 147.17820961642124,
+      "max_abs_output_weight": 1.858457537663933
     },
     {
       "width": 16,
       "train": {
-        "mse": 1.0595271494402861e-08,
-        "rmse": 0.00010293333519517795,
-        "mae": 8.025336778659403e-05,
-        "max_abs_error": 0.0004730715816750771,
+        "mse": 1.0595271494398545e-08,
+        "rmse": 0.00010293333519515699,
+        "mae": 8.025336778648099e-05,
+        "max_abs_error": 0.00047307158166930396,
         "r2": 0.9999999787263568
       },
       "test": {
-        "mse": 9.582546905232857e-09,
-        "rmse": 9.789048424250876e-05,
-        "mae": 7.848635755633778e-05,
-        "max_abs_error": 0.0004694067836698585,
+        "mse": 9.582546905233664e-09,
+        "rmse": 9.78904842425129e-05,
+        "mae": 7.848635755626063e-05,
+        "max_abs_error": 0.00046940678366452944,
         "r2": 0.9999999808349062
       },
-      "endpoint_max_abs_error": 0.00047307158167330076,
-      "sampled_interval_max_abs_error": 0.00047307158167330076,
+      "endpoint_max_abs_error": 0.00047307158166885987,
+      "sampled_interval_max_abs_error": 0.00047307158166885987,
       "effective_rank": 16,
-      "design_condition_number": 41970.190359918684,
-      "max_abs_output_weight": 2.0015232890261934
+      "design_condition_number": 41970.19035992921,
+      "max_abs_output_weight": 2.0015232890260752
     },
     {
       "width": 32,
       "train": {
-        "mse": 1.1505306690662814e-13,
-        "rmse": 3.3919473301722735e-07,
-        "mae": 2.6749507709548413e-07,
-        "max_abs_error": 1.246486817640606e-06,
+        "mse": 1.1505306214457457e-13,
+        "rmse": 3.3919472599758177e-07,
+        "mae": 2.6749507178983365e-07,
+        "max_abs_error": 1.2464864978963748e-06,
         "r2": 0.999999999999769
       },
       "test": {
-        "mse": 1.051648512798579e-13,
-        "rmse": 3.2429130620455727e-07,
-        "mae": 2.6034046494961944e-07,
-        "max_abs_error": 1.2099218988387977e-06,
+        "mse": 1.0516485102950202e-13,
+        "rmse": 3.242913058185526e-07,
+        "mae": 2.603404626349168e-07,
+        "max_abs_error": 1.2099217709411053e-06,
         "r2": 0.9999999999997897
       },
-      "endpoint_max_abs_error": 1.2464861355195796e-06,
-      "sampled_interval_max_abs_error": 1.2464861355195796e-06,
+      "endpoint_max_abs_error": 1.246486362893255e-06,
+      "sampled_interval_max_abs_error": 1.246486362893255e-06,
       "effective_rank": 32,
-      "design_condition_number": 7575350239.908322,
-      "max_abs_output_weight": 157.91912547475283
+      "design_condition_number": 7575349969.756794,
+      "max_abs_output_weight": 157.919126302026
     }
   ]
 }
