@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\section*{Hahn--Banach Theorem (Normed Version)}
+
+\subsection*{Formal Statement}
+
+Let:
+\begin{itemize}
+    \item \( X \) be a real normed vector space.
+    \item \( M \subseteq X \) be a linear subspace.
+    \item \( f : M \to \mathbb{R} \) be a bounded linear functional on \( M \).
+\end{itemize}
+
+Then there exists a bounded linear functional
+\[
+F : X \to \mathbb{R}
+\]
+such that:
+\[
+F(x) = f(x) \quad \forall x \in M
+\]
+and
+\[
+\| F \| = \| f \|
+\]
+Therefore, \( F \) is an extension of \( f \) to the entire space \( X \), without increasing its norm.
+
+\end{document}
