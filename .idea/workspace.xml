@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="Road map">
-      <change beforePath="$PROJECT_DIR$/Cybenko proof/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Cybenko proof/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="Road map" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +75,7 @@
       <workItem from="1791374680549" duration="3299000" />
       <workItem from="1791488865315" duration="1423000" />
       <workItem from="1791559197019" duration="1100000" />
-      <workItem from="1791574068633" duration="1229000" />
+      <workItem from="1791574068633" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="sigmoid lib">
       <option name="closed" value="true" />
@@ -263,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791575493839</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Road map">
+      <option name="closed" value="true" />
+      <created>1791575807928</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1791575807928</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
