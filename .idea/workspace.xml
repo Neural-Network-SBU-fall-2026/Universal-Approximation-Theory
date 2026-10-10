@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="sigmoid_coefficient" />
+    <list default="true" id="c87aaa1e-aeb4-4ded-9da5-3c320177911b" name="Changes" comment="Road map" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,29 +28,30 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3KMk6i3o1L9hLehYAyc8PeFSd7g" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.sigmoid.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Cybenko",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.approximate_sine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sigmoid.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Cybenko&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Plus\PycharmProjects\UAT\Cybenko" />
@@ -72,6 +73,9 @@
       <option name="presentableId" value="Default" />
       <updated>1791374652082</updated>
       <workItem from="1791374680549" duration="3299000" />
+      <workItem from="1791488865315" duration="1423000" />
+      <workItem from="1791559197019" duration="1100000" />
+      <workItem from="1791574068633" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="sigmoid lib">
       <option name="closed" value="true" />
@@ -193,7 +197,79 @@
       <option name="project" value="LOCAL" />
       <updated>1791384763746</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="01_cybenko_theorem paper">
+      <option name="closed" value="true" />
+      <created>1791488933636</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1791488933636</updated>
+    </task>
+    <task id="LOCAL-00017" summary="01_cybenko_theorem hand eri">
+      <option name="closed" value="true" />
+      <created>1791488991656</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1791488991656</updated>
+    </task>
+    <task id="LOCAL-00018" summary="01_cybenko_theorem handwrite">
+      <option name="closed" value="true" />
+      <created>1791489102691</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1791489102691</updated>
+    </task>
+    <task id="LOCAL-00019" summary="test on sin(x)">
+      <option name="closed" value="true" />
+      <created>1791559604711</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1791559604711</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Hahn--Banach Theorem (Normed Version)">
+      <option name="closed" value="true" />
+      <created>1791574164412</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1791574164413</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Riesz Representation Theorem">
+      <option name="closed" value="true" />
+      <created>1791574232392</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1791574232392</updated>
+    </task>
+    <task id="LOCAL-00022" summary="initial readme">
+      <option name="closed" value="true" />
+      <created>1791574350766</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1791574350766</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Road map">
+      <option name="closed" value="true" />
+      <created>1791575493838</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1791575493839</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Road map">
+      <option name="closed" value="true" />
+      <created>1791575807928</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1791575807928</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,9 +307,18 @@
     <MESSAGE value="Papers 00_theorem_statement" />
     <MESSAGE value="LaTex 00_theorem_statement" />
     <MESSAGE value="sigmoid_coefficient" />
-    <option name="LAST_COMMIT_MESSAGE" value="sigmoid_coefficient" />
+    <MESSAGE value="01_cybenko_theorem paper" />
+    <MESSAGE value="01_cybenko_theorem latex" />
+    <MESSAGE value="01_cybenko_theorem handwrite" />
+    <MESSAGE value="test on sin(x)" />
+    <MESSAGE value="Hahn--Banach Theorem (Normed Version)" />
+    <MESSAGE value="Riesz Representation Theorem" />
+    <MESSAGE value="initial readme" />
+    <MESSAGE value="Road map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Road map" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UAT$sigmoid.coverage" NAME="sigmoid Coverage Results" MODIFIED="1791384757611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Cybenko proof" />
+    <SUITE FILE_PATH="coverage/UAT$approximate_sine.coverage" NAME="approximate_sine Coverage Results" MODIFIED="1791559514584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Cybenko proof" />
   </component>
 </project>
