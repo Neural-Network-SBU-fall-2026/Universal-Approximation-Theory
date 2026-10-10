@@ -4,4 +4,4 @@
 - Paradox
 
 ![image](/sine_results/pointwise_error.png)
-![image](/sine_results/width_vs_error.png)
+![image](/sine_results/width_vs_erroar.png)
